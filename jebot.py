@@ -119,7 +119,7 @@ async def song(client, message):
     
     
     
-@Jebot.on_message(filters.command("s|song|music|audio|hutto"))
+@Jebot.on_message(filters.command("music"))
 async def song(client, message):
     message.chat.id
     user_id = message.from_user["id"]
@@ -164,6 +164,97 @@ async def song(client, message):
     )
     await status.delete()
     os.remove(f"{str(user_id)}.mp3")
+    
+@Jebot.on_message(filters.command("song"))
+async def song(client, message):
+    message.chat.id
+    user_id = message.from_user["id"]
+    args = get_arg(message) + " " + "song"
+    if args.startswith(" "):
+        await message.reply("<b>Enter a song name❗\n\nExample: `/s Shape of you`</b>")
+        return ""
+    status = await message.reply(
+             text="<b>Downloading your song, Plz wait... 😉 \n\n🎶•••🎵•••🎧•••</b>",
+             disable_web_page_preview=True,
+                        reply_markup=InlineKeyboardMarkup(
+                            [[
+                             
+                                    InlineKeyboardButton(
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/Galaxylanka")
+                                ]]
+                        ),
+               parse_mode="html",
+        reply_to_message_id=message.message_id
+      )
+    video_link = yt_search(args)
+    if not video_link:
+        await status.edit("<b>Song not found 🥺</b>")
+        return ""
+    yt = YouTube(video_link)
+    audio = yt.streams.filter(only_audio=True).first()
+    try:
+        download = audio.download(filename=f"{str(user_id)}")
+    except Exception as ex:
+        await status.edit("<b>Failed to download song 🤕</b>")
+        LOGGER.error(ex)
+        return ""
+    os.rename(download, f"{str(user_id)}.mp3")
+    await Jebot.send_chat_action(message.chat.id, "upload_audio")
+    await Jebot.send_audio(
+        chat_id=message.chat.id,
+        audio=f"{str(user_id)}.mp3",
+        duration=int(yt.length),
+        title=str(yt.title),
+        performer=str(yt.author),
+        reply_to_message_id=message.message_id,
+    )
+    await status.delete()
+    os.remove(f"{str(user_id)}.mp3")
+@Jebot.on_message(filters.command("s"))
+async def song(client, message):
+    message.chat.id
+    user_id = message.from_user["id"]
+    args = get_arg(message) + " " + "song"
+    if args.startswith(" "):
+        await message.reply("<b>Enter a song name❗\n\nExample: `/s Shape of you`</b>")
+        return ""
+    status = await message.reply(
+             text="<b>Downloading your song, Plz wait... 😉 \n\n🎶•••🎵•••🎧•••</b>",
+             disable_web_page_preview=True,
+                        reply_markup=InlineKeyboardMarkup(
+                            [[
+                             
+                                    InlineKeyboardButton(
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/Galaxylanka")
+                                ]]
+                        ),
+               parse_mode="html",
+        reply_to_message_id=message.message_id
+      )
+    video_link = yt_search(args)
+    if not video_link:
+        await status.edit("<b>Song not found 🥺</b>")
+        return ""
+    yt = YouTube(video_link)
+    audio = yt.streams.filter(only_audio=True).first()
+    try:
+        download = audio.download(filename=f"{str(user_id)}")
+    except Exception as ex:
+        await status.edit("<b>Failed to download song 🤕</b>")
+        LOGGER.error(ex)
+        return ""
+    os.rename(download, f"{str(user_id)}.mp3")
+    await Jebot.send_chat_action(message.chat.id, "upload_audio")
+    await Jebot.send_audio(
+        chat_id=message.chat.id,
+        audio=f"{str(user_id)}.mp3",
+        duration=int(yt.length),
+        title=str(yt.title),
+        performer=str(yt.author),
+        reply_to_message_id=message.message_id,
+    )
+    await status.delete()
+    os.remove(f"{str(user_id)}.mp3")    
 
 @Jebot.on_message(filters.command("start"))
 async def start(client, message):
@@ -178,7 +269,7 @@ Hit help button to find out more about how to use me</b>""",
                                         InlineKeyboardButton(
                                             "Help", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Group 🏘", url="https://t.me/HiTechRocket")
+                                            "Group 🏘", url="https://t.me/GalaxyLanka")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
