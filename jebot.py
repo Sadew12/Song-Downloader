@@ -119,7 +119,7 @@ async def song(client, message):
     
     
     
-@Jebot.on_message(filters.command("[s],[song],[audio],[music]"))
+@Jebot.on_message(filters.command("s|song|music|audio|hutto"))
 async def song(client, message):
     message.chat.id
     user_id = message.from_user["id"]
