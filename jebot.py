@@ -1,4 +1,4 @@
-#    Copyright (c) 2021 Galaxy BOT <https://t.me/GalaxyLanka>
+#    Copyright (c) 2021 cgs technology bot <https://t.me/cgs_technology>
  
 #    This program is free software: you can redistribute it and/or modify  
 #    it under the terms of the GNU General Public License as published by  
@@ -86,7 +86,7 @@ async def song(client, message):
                         reply_markup=InlineKeyboardMarkup(
                             [[
                                     InlineKeyboardButton(
-                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/GalaxyLanka")
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/cgs_technology")
                                 ]]
                         ),
                parse_mode="html",
@@ -134,7 +134,7 @@ async def song(client, message):
                             [[
                              
                                     InlineKeyboardButton(
-                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/Galaxylanka")
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/cgs_technology")
                                 ]]
                         ),
                parse_mode="html",
@@ -180,7 +180,7 @@ async def song(client, message):
                             [[
                              
                                     InlineKeyboardButton(
-                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/Galaxylanka")
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/cgs_technology")
                                 ]]
                         ),
                parse_mode="html",
@@ -225,7 +225,7 @@ async def song(client, message):
                             [[
                              
                                     InlineKeyboardButton(
-                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/Galaxylanka")
+                                        "𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 •••", url="https://t.me/cgs_technology")
                                 ]]
                         ),
                parse_mode="html",
@@ -262,14 +262,14 @@ async def start(client, message):
        await Jebot.send_message(
                chat_id=message.chat.id,
                text="""<b>Hey There, I'm a Song Downloader Bot 🎶
-Made by @Prabha_sha 🇱🇰
+    created by @kmsrk
 Hit help button to find out more about how to use me</b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
                                             "Help", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Group 🏘", url="https://t.me/GalaxyLanka")
+                                            "Group 🏘", url="https://t.me/cgs_technology")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -320,7 +320,7 @@ async def button(Jebot, update):
 print(
     """
 Bot Started!
-Join @HiTechRockets
+Join @cgs_technology
 """
 )
 
